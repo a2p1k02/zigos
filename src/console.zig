@@ -35,7 +35,6 @@ fn vgaEntryColor(fg: ConsoleColors, bg: ConsoleColors) u8 {
 
 fn vgaEntry(uc: u8, new_color: u8) u16 {
     const c: u16 = new_color;
-
     return uc | (c << 8);
 }
 
@@ -48,7 +47,10 @@ pub fn setColor(new_color: u8) void {
 }
 
 pub fn clear() void {
+    color = vgaEntryColor(ConsoleColors.White, ConsoleColors.Blue);
     @memset(buffer[0..VGA_SIZE], vgaEntry(' ', color));
+    row = 0;
+    column = 0;
 }
 
 pub fn putCharAt(c: u8, new_color: u8, x: usize, y: usize) void {
