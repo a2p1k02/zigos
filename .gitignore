@@ -1,0 +1,8 @@
+.zig-cache/
+isodir/
+kernel.iso
+zig-out/
+.idea/
+.vs/
+.code/
+.vscode/
